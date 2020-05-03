@@ -16,6 +16,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+// 迭代
 var reverseList = function(head) {
   let cur = head,
       prev = null;
@@ -26,6 +27,14 @@ var reverseList = function(head) {
     cur = cnext;
   }
   return prev;
+};
+// 递归
+var reverseList = function(head) {
+  if (head == null || head.next === null) return head;
+  let tail = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return tail;
 };
 // @lc code=end
 
